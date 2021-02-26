@@ -94,7 +94,7 @@ class Transport {
     const subdomain = subdomains[dcId - 1];
     const path = `/apiws${ isTestMode ? '_test' : '' }`;
     const socket = new WebSocket(
-      `ws://${subdomain}.web.telegram.org:443${path}`,
+      `wss://${subdomain}.web.telegram.org:443${path}`,
       [ 'binary' ]
     );
 
