@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Telegram web client",
   "author": "Sergei Ivankov <sergeiivankov@yandex.ru>",
-  "license": "GPL-3.0",
+  "license": "ROL",
   "scripts": {
     "dev": "run-p serve watch",
     "serve": "serve dist",
