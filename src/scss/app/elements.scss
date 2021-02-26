@@ -1,0 +1,111 @@
+@keyframes buttonWave {
+  from {
+    transform: scale(0) translate(-50%, -50%);
+  }
+  to {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+.button {
+  border: none;
+  background-color: #4ea4f6;
+  color: #fff;
+  height: 44px;
+  padding: 0 16px;
+  text-transform: uppercase;
+  outline: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+
+  &:hover {
+    background-color: #4797e2;
+  }
+
+  &__big {
+    height: 54px;
+  }
+
+  &__block {
+    display: block;
+    width: 100%;
+  }
+
+  &__circle {
+    height: 54px;
+    width: 54px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+
+    &.button__middle {
+      width: 44px;
+      height: 44px;
+
+      .icon {
+        font-size: 26px !important;
+      }
+    }
+  }
+
+  &__white {
+    color: #707579;
+    background: #fff;
+    box-shadow: none;
+
+    &:hover {
+      background-color: #f4f4f5;
+    }
+
+    .button_wave {
+      background: #e9e9eb;
+    }
+  }
+
+  &__loading {
+    cursor: not-allowed;
+    background-color: #4797e2;
+  }
+
+  > span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .icon {
+    font-size: 28px;
+  }
+
+  &_wave {
+    position: absolute;
+    background: #418acf;
+    border-radius: 50%;
+    width: 200%;
+    padding-top: 200%;
+    transform: scale(1) translate(-50%, -50%);
+    transform-origin: left top;
+    opacity: 1;
+    animation: 0.6s buttonWave linear;
+    transition: opacity 0.3s;
+    z-index: 0;
+
+    &__hide {
+      opacity: 0;
+    }
+  }
+
+  .loader {
+    position: absolute;
+    z-index: 1;
+    top: 12px;
+    right: 12px;
+  }
+}

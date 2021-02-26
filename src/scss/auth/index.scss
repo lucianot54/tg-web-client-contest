@@ -1,0 +1,266 @@
+@import './elements.scss';
+@import './form.scss';
+
+.auth {
+  width: 360px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 48px 0;
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 360px;
+    left: -360px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    z-index: 2;
+  }
+}
+
+.auth-screen {
+  position: absolute;
+  left: 0;
+  top: 48px;
+  width: 100%;
+}
+
+.auth-animated-wrapper {
+  position: relative;
+  width: 100%;
+
+  .auth-animated {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.auth-animated {
+  will-change: opacity, transform;
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s, transform 0.3s;
+
+  &__hide-left {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  &__hide-right {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.auth-header {
+  font-size: 0;
+  margin-bottom: 48px;
+  height: 160px;
+  position: relative;
+
+  img {
+    height: 160px;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &__anim {
+    height: 165px;
+    margin-bottom: 28px;
+    margin-top: 15px;
+  }
+}
+
+.auth-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    cursor: pointer;
+    color: #707579;
+    font-size: 24px;
+    margin-left: 5px;
+  }
+}
+
+.auth-info {
+  color: #707579;
+  margin-bottom: 48px;
+}
+
+.auth-field {
+  margin-bottom: 24px;
+  text-align: left;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__padded {
+    padding: 0 20px;
+  }
+
+  &__button {
+    margin-top: 40px;
+  }
+}
+
+.auth-photo {
+  background: #4ea4f6;
+  width: 160px;
+  height: 160px;
+  margin: auto;
+  border-radius: 80px;
+  font-size: 48px;
+  position: relative;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+
+  &:hover {
+    background: #4797e2;
+
+    .auth-photo_overlay {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  input {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: color 0.3s;
+  }
+
+  img {
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+  }
+
+  &_overlay {
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 160px;
+    border-radius: 80px;
+    transition: background-color 0.3s;
+
+    &__hide {
+      display: none;
+    }
+  }
+}
+
+.auth-photo-modal {
+  display: none;
+
+  &_overlay {
+    background: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 8;
+    transition: background-color 0.3s;
+
+    &__hide {
+      background: rgba(0, 0, 0, 0) !important;
+    }
+  }
+
+  &_content {
+    background: #fff;
+    border-radius: 8px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -250px 0 0 -250px;
+    z-index: 9;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  &_close {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 7px;
+    color: #707579;
+    transition: color 0.3s;
+    cursor: pointer;
+    font-size: 20px;
+
+    &:hover {
+      color: #000;
+    }
+  }
+
+  &_header {
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+    line-height: 20px;
+    left: 70px;
+    top: 25px;
+    position: absolute;
+  }
+
+  &_button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  &_body {
+    margin: 70px;
+    width: 360px;
+    position: relative;
+    height: 360px;
+
+    canvas {
+      width: 360px;
+      height: 360px;
+      top: 0;
+      left: 0;
+      position: absolute;
+      border-radius: 4px;
+    }
+
+    &__terms {
+      height: auto;
+      white-space: pre-line;
+    }
+  }
+
+  &__active {
+    display: block;
+
+    .auth-photo-modal_overlay {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+}
