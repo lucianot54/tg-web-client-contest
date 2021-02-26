@@ -1,0 +1,30 @@
+.side-header {
+  height: 60px;
+  flex-shrink: 0;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &.is-bordered {
+    border-bottom: 1px solid #dadce0;
+    height: 61px;
+  }
+
+  .menu {
+    position: absolute;
+  }
+
+  .button {
+    flex-shrink: 0;
+
+    &:first-child {
+      margin-right: 20px;
+    }
+  }
+
+  &_text {
+    font-weight: 700;
+    font-size: 18px;
+  }
+}

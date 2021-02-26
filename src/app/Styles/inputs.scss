@@ -1,0 +1,331 @@
+.search-field {
+  align-items: center;
+  border: 1px solid #f4f4f5;
+  background-color: #f4f4f5;
+  border-radius: 8px;
+  color: #000;
+  display: flex;
+  height: 44px;
+  position: relative;
+  text-align: left;
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  border-radius: 22px;
+  margin-left: -6px;
+  margin-right: 6px;
+  width: 100%;
+  cursor: text;
+
+  .icon {
+    color: #abb2b7;
+    margin-left: 14px;
+    transition: color 0.3s;
+  }
+
+  label {
+    color: #8d969c;
+    height: 16px;
+    left: 40px;
+    line-height: 16px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-8px);
+    user-select: none;
+    white-space: pre;
+    cursor: text;
+  }
+
+  input {
+    background: transparent;
+    border: 0;
+    height: 50px;
+    padding: 0 10px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &.is-fill {
+    label {
+      color: transparent;
+    }
+  }
+
+  &.is-focus {
+    background-color: #fff;
+    border-color: #50a2e9;
+    box-shadow: inset 0 0 0 1px #50a2e9;
+
+    .icon {
+      color: #50a2e9;
+    }
+  }
+
+  .loader {
+    position: absolute;
+    z-index: 1;
+    top: 7px;
+    right: 7px;
+  }
+}
+
+.send {
+  display: flex;
+  width: 696px;
+  align-items: flex-end;
+
+  @media (max-width: 1100px) {
+    width: 636px;
+  }
+
+  &.is-fill {
+    label {
+      color: transparent;
+    }
+  }
+
+  &_form {
+    background: #fff;
+    border-radius: 12px 12px 0 12px;
+    flex-grow: 2;
+    position: relative;
+    padding: 0 0 0 50px;
+    display: flex;
+
+    &:before {
+      width: 7px;
+      height: 17px;
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: -7px;
+      box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
+      background-image: url("data:image/svg+xml,%3Csvg width='7' height='17' viewBox='0 0 7 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.99997 17H0V0C0.193003 2.8393 0.876198 5.76675 2.04958 8.78235C2.95395 11.1066 4.49587 13.2666 6.67533 15.2625C7.08266 15.6355 7.11048 16.268 6.73748 16.6754C6.54805 16.8822 6.28046 17 5.99997 17Z' fill='%23fff'/%3E%3C/svg%3E%0A");
+    }
+
+    tg-scroll {
+      min-height: 54px;
+      width: 100%;
+      font-size: 0;
+      max-height: 400px;
+    }
+
+    label {
+      color: #8d969c;
+      user-select: none;
+      cursor: text;
+      position: absolute;
+      left: 54px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    textarea {
+      background: transparent;
+      border: 0;
+      position: relative;
+      width: 100%;
+      z-index: 1;
+      resize: none;
+      line-height: 22px;
+      padding: 16px 50px 16px 4px;
+      outline: none;
+      overflow: hidden;
+    }
+  }
+
+  &_button {
+    color: #8d969c;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    z-index: 1;
+
+    &__right {
+      left: auto;
+      right: 8px;
+    }
+
+    &:hover {
+      color: #50a2e9;
+
+      .send-smiles {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      .menu-wrapper {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  }
+
+  tg-button {
+    background: #fff;
+    flex-shrink: 0;
+    margin-left: 8px;
+    color: #50a2e9;
+    font-size: 20px;
+    width: 54px;
+    height: 54px;
+
+    .icon {
+      margin-left: 3px;
+      line-height: 0;
+    }
+  }
+
+  .menu {
+    transform: scale(1);
+    opacity: 1;
+    font-size: 16px;
+  }
+}
+
+.tabs {
+  height: 48px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  &_elem {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-weight: 700;
+    padding-top: 3px;
+    color: #707579;
+
+    &.is-active {
+      color: #50a2e9;
+      border-bottom-color: #50a2e9;
+    }
+
+    &:hover {
+      border-bottom-color: #50a2e9;
+    }
+  }
+}
+
+.menu-wrapper {
+  position: absolute;
+  bottom: 38px;
+  right: -8px;
+  height: 50px;
+  width: 50px;
+  padding-bottom: 18px;
+  transform-origin: left bottom;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+
+  .menu {
+    bottom: 18px;
+    right: 0;
+    position: absolute;
+  }
+}
+
+.send-input-file {
+  position: fixed;
+  left: -9999px;
+}
+
+.send-smiles {
+  position: absolute;
+  bottom: 38px;
+  left: -8px;
+  width: 405px;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  color: #707579;
+  cursor: auto;
+  padding-bottom: 18px;
+  transform-origin: left bottom;
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.3s, opacity 0.3s;
+
+  &_top {
+    border-radius: 8px 8px 0 0;
+    background: #fff;
+    height: 48px;
+    border-bottom: 1px solid #dadce0;
+  }
+
+  &_body {
+    height: 324px;
+    background: #fff;
+    position: relative;
+
+    tg-scroll {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      font-size: 16px !important;
+    }
+  }
+
+  &_bottom {
+    border-radius: 0 0 8px 8px;
+    background: #fff;
+    height: 48px;
+    border-top: 1px solid #dadce0;
+    display: flex;
+
+    &-elem {
+      flex-grow: 2;
+      width: 100%;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 0;
+
+      &:hover, &.is-active {
+        color: #50a2e9;
+      }
+    }
+  }
+
+  &_emoji-block {
+    margin-bottom: 19px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &_emoji {
+    width: 42px;
+    height: 42px;
+    border-radius: 4px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1px;
+    cursor: pointer;
+
+    &:hover {
+      background: #f1f3f4;
+    }
+  }
+}

@@ -1,0 +1,151 @@
+.icon__addphoto:before { content: '\e800'; } /* '' */
+.icon__archive:before { content: '\e801'; } /* '' */
+.icon__back:before { content: '\e802'; } /* '' */
+.icon__check1:before { content: '\e803'; } /* '' */
+.icon__check2:before { content: '\e804'; } /* '' */
+.icon__close:before { content: '\e805'; } /* '' */
+.icon__help:before { content: '\e806'; } /* '' */
+.icon__logout:before { content: '\e807'; } /* '' */
+.icon__menu:before { content: '\e808'; } /* '' */
+.icon__more:before { content: '\e809'; } /* '' */
+.icon__pinned:before { content: '\e80a'; } /* '' */
+.icon__saved:before { content: '\e80b'; } /* '' */
+.icon__savedavatar:before { content: '\e80c'; } /* '' */
+.icon__search:before { content: '\e80d'; } /* '' */
+.icon__settings:before { content: '\e80e'; } /* '' */
+.icon__verified:before { content: '\e80f'; } /* '' */
+.icon__new:before { content: '\e810'; } /* '' */
+.icon__group:before { content: '\e811'; } /* '' */
+.icon__edit:before { content: '\e812'; } /* '' */
+.icon__contacts:before { content: '\e813'; } /* '' */
+.icon__check:before { content: '\e814'; } /* '' */
+.icon__channel:before { content: '\e815'; } /* '' */
+.icon__unarchive:before { content: '\e816'; } /* '' */
+.icon__document:before { content: '\e817'; } /* '' */
+.icon__download:before { content: '\e818'; } /* '' */
+.icon__eats:before { content: '\e819'; } /* '' */
+.icon__eye:before { content: '\e81a'; } /* '' */
+.icon__flag:before { content: '\e81b'; } /* '' */
+.icon__info:before { content: '\e81c'; } /* '' */
+.icon__lamp:before { content: '\e81d'; } /* '' */
+.icon__mute:before { content: '\e81e'; } /* '' */
+.icon__phone:before { content: '\e81f'; } /* '' */
+.icon__photo:before { content: '\e820'; } /* '' */
+.icon__poll:before { content: '\e821'; } /* '' */
+.icon__recent:before { content: '\e822'; } /* '' */
+.icon__send:before { content: '\e823'; } /* '' */
+.icon__senderror:before { content: '\e824'; } /* '' */
+.icon__smile:before { content: '\e825'; } /* '' */
+.icon__unmute:before { content: '\e826'; } /* '' */
+.icon__username:before { content: '\e827'; } /* '' */
+.icon__animals:before { content: '\e828'; } /* '' */
+.icon__attach:before { content: '\e829'; } /* '' */
+.icon__car:before { content: '\e82a'; } /* '' */
+.icon__copy:before { content: '\e82b'; } /* '' */
+.icon__delete:before { content: '\e82c'; } /* '' */
+.icon__deletedavatar:before { content: '\e82d'; } /* '' */
+.icon__sport:before { content: '\e82e'; } /* '' */
+
+html, body {
+  overflow: hidden;
+  background: #fff;
+}
+
+.page-overlay {
+  z-index: 100009;
+}
+
+@keyframes showApp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.app {
+  animation: showApp 0.6s;
+  display: flex;
+  transition: opacity 0.6s;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  @media (min-width: 1682px) {
+    width: 1680px;
+    border-left: 1px solid #dadce0;
+    border-right: 1px solid #dadce0;
+    margin: auto;
+  }
+
+  &__hide {
+    opacity: 0;
+  }
+
+  &_left {
+    width: 421px;
+    border-right: 1px solid #dadce0;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    @media (max-width: 1200px) {
+      width: 380px;
+    }
+
+    @media (max-width: 1150px) {
+      width: 330px;
+    }
+
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      z-index: 100005;
+      transition: opacity 0.3s;
+
+      &__hide {
+        opacity: 0;
+      }
+
+      .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -30px 0 0 -30px;
+      }
+    }
+  }
+
+  &_right {
+    width: 421px;
+    border-left: 1px solid #dadce0;
+    flex-shrink: 0;
+    position: relative;
+    margin-right: -421px;
+    transition: margin-right 0.3s;
+    background: #fff;
+
+    @media (max-width: 1600px) {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 9;
+    }
+
+    &.is-visible {
+      margin-right: 0;
+    }
+  }
+
+  &_messages {
+    flex-grow: 2;
+    position: relative;
+  }
+}

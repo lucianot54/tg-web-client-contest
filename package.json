@@ -1,42 +1,24 @@
 {
-  "name": "telegram-js",
+  "name": "telegram-web",
   "version": "0.0.1",
-  "description": "Telegram Vanilla JS client",
+  "description": "Telegram web client",
   "author": "Sergei Ivankov <sergeiivankov@yandex.ru>",
   "license": "GPL-3.0",
-  "homepage": "https://xooler.github.io/telegram-js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xooler/telegram-js.git"
-  },
-  "bugs": {
-    "url": "https://github.com/xooler/telegram-js/issues"
-  },
   "scripts": {
     "dev": "run-p serve watch",
     "serve": "serve dist",
-    "watch": "chokidar \"src/**/*\" -c \"rollup -c\"",
-    "build": "rollup -c --environment PROD",
-    "deploy": "npm run build && gh-pages -d build"
+    "watch": "rollup -c -w",
+    "build": "rollup -c --environment PROD"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "autoprefixer": "^9.7.1",
-    "chokidar-cli": "^2.1.0",
     "cssnano": "^4.1.10",
-    "gh-pages": "^2.1.1",
     "npm-run-all": "^4.1.5",
-    "postcss": "^7.0.21",
-    "rollup": "^1.26.3",
-    "rollup-plugin-babel": "^4.3.3",
+    "postcss": "^7.0.26",
+    "rollup": "^1.30.1",
     "rollup-plugin-minify-html-literals": "^1.2.2",
     "rollup-plugin-sass": "^1.2.2",
-    "rollup-plugin-terser": "^5.1.2",
-    "serve": "^11.2.0"
-  },
-  "browserslist": [
-    "last 2 versions",
-    "not ie <= 10"
-  ]
+    "rollup-plugin-string": "^3.0.0",
+    "rollup-plugin-terser": "^5.2.0",
+    "serve": "^11.3.0"
+  }
 }

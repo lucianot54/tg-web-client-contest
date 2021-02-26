@@ -1,0 +1,134 @@
+::selection {
+  background-color: #50a2e9;
+  color: #fff;
+}
+
+html {
+  font-size: 16px;
+  background: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+body {
+  background: #fff;
+  color: #000;
+  font-family: "Roboto", BlinkMacSystemFont, -apple-system, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+input {
+  outline: 0;
+  caret-color: #50a2e9;
+}
+
+input, textarea, button, select {
+  font-size: 16px;
+  font-family: "Roboto", BlinkMacSystemFont, -apple-system, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+}
+
+input[type=file] {
+  font-family: initial;
+}
+
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+}
+
+@keyframes loaderRotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loaderDash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+
+tg-loader {
+  display: block;
+}
+
+.loader {
+  height: 30px;
+  width: 30px;
+  opacity: 1;
+  transition: opacity 0.3s;
+
+  &__hide {
+    opacity: 0;
+  }
+
+  circle {
+    animation: loaderDash 1.5s ease-in-out infinite, loaderRotate 2s linear infinite;
+    stroke: #fff;
+    stroke-linecap: round;
+    transform-origin: 50px 50px;
+    fill: none;
+    stroke-width: 3;
+    stroke-miterlimit: 10;
+  }
+
+  &__blue {
+    circle {
+      stroke: #50a2e9;
+    }
+  }
+
+  &__big {
+    height: 64px;
+    width: 64px;
+  }
+
+  &__thin circle {
+    stroke-width: 2;
+  }
+
+  body > & {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -30px 0 0 -30px;
+  }
+}
+
+.a-flag {
+	display: inline-block;
+	height: 1em;
+	width: 1em;
+	line-height: 0.81em;
+	font-size: 1em;
+ 	margin: -2px 0;
+	vertical-align: baseline;
+	text-indent: -9999px;
+	background-image: url(../img/flags.png);
+  background-size: 100%;
+}
+
+.messages-bg__default {
+  background-image: url(../img/bg.jpg);
+}
+
+.m-preloader {
+  position: absolute;
+  left: -9999px;
+}

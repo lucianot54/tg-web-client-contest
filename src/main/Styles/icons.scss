@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'icons';
+  src: url('../fonts/icons.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'icons-auth';
+  src: url('../fonts/icons-auth.woff2') format('woff2');
+}
+
+.icon {
+  &:before {
+    font-family: 'icons';
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  &__a:before {
+    font-family: 'icons-auth';
+    width: 1em;
+    margin-right: .2em;
+    line-height: 1em;
+    margin-left: .2em;
+  }
+}

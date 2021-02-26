@@ -1,0 +1,245 @@
+.dialogs {
+  position: relative;
+  flex-grow: 2;
+  display: flex;
+
+  .scroll {
+    position: absolute;
+  }
+
+  &_overlay {
+    height: 16px;
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    top: 0px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 100000;
+
+    &__bottom {
+      top: auto;
+      bottom: 0px;
+      transform: scaleY(-1);
+    }
+
+    &.is-visible {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes typingDot {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes dialogWave {
+  from {
+    transform: scale(0) translate(-50%, -50%);
+  }
+  to {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+.dialog {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 72px;
+  display: flex;
+  padding: 8px;
+  transition: background-color 0.15s, transform 0.3s;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #fff;
+  transform-origin: center top;
+  overflow: hidden;
+
+  &:hover, &.is-hover, &.is-active {
+    background: #f4f4f5;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &_wave {
+    position: absolute;
+    background: #e7eaeb;
+    border-radius: 50%;
+    width: 200%;
+    padding-top: 200%;
+    transform: scale(1) translate(-50%, -50%);
+    transform-origin: left top;
+    animation: 0.45s dialogWave ease-in;
+    transition: opacity 0.3s;
+    z-index: 1;
+
+    &__hide {
+      opacity: 0;
+    }
+  }
+
+  &_side {
+    width: 54px;
+    margin-right: 8px;
+    position: relative;
+  }
+
+  &_photo {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #50a2e9;
+    position: relative;
+  }
+
+  &_photo-text {
+    position: absolute;
+    width: 54px;
+    line-height: 56px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+
+    .icon {
+      font-size: 25px;
+    }
+  }
+
+  &_photo-image {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    display: none;
+  }
+
+  &_online {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    background: #0ac630;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    transition: border-color 0.15s, transform 0.3s;
+    transform: scale(0);
+
+    .dialog:hover & {
+      border-color: #f4f4f5;
+    }
+
+    &.is-visible {
+      transform: scale(1);
+    }
+  }
+
+  &_main {
+    width: calc(100% - 62px);
+  }
+
+  &_header {
+    display: flex;
+    margin-top: 2px;
+    align-items: center;
+
+    .icon__verified {
+      color: #50a2e9;
+      margin-left: 4px;
+    }
+  }
+
+  &_fill {
+    flex-grow: 2;
+  }
+
+  &_name {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &_status {
+    .icon {
+      display: none;
+      color: #4fae4e;
+      font-size: 10px;
+    }
+
+    &.is-sended .icon__check1 {
+      display: block;
+    }
+
+    &.is-readed .icon__check2 {
+      display: block;
+    }
+  }
+
+  &_date {
+    color: #707579;
+    font-size: 12px;
+    margin-left: 4px;
+  }
+
+  &_body {
+    display: flex;
+  }
+
+  &_text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #707579;
+    flex-grow: 2;
+
+    > span {
+      color: #000;
+    }
+
+    > div {
+      span {
+        animation: typingDot 1.5s infinite both;
+
+        &:nth-child(2) {
+          animation-delay: 0.25s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 0.5s;
+        }
+      }
+    }
+  }
+
+  .badge {
+    display: none;
+    background-color: #4dcd5e;
+    margin-left: 4px;
+    transform: scale(0);
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-top: 1px;
+
+    &.is-display {
+      display: inline-flex;
+    }
+
+    &.is-visible {
+      transform: scale(1);
+    }
+
+    &.is-gray {
+      background-color: #c4c9cc;
+    }
+  }
+}
